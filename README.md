@@ -108,7 +108,7 @@
 
     在 react 源码文件夹中新建 .eslintrc.json 并添加如下配置
 
-    ```react
+    ```javascript
     {
       "extends": "react-app",
       "globals": {
@@ -167,7 +167,7 @@ JSX 被 Babel 编译为 React.createElement 方法的调用，createElement 方�
 
 `文件位置：packages/react/src/ReactElement.js`
 
-```react
+```javascript
 /**
  * 创建 React Element
  * type      元素类型
@@ -344,7 +344,7 @@ export function createElement(type, config, children) {
 
 `文件位置：packages/react/src/ReactElement.js`
 
-```react
+```javascript
 /**
  * 接收参数 返回 ReactElement
  */
@@ -390,7 +390,7 @@ const ReactElement = function (type, key, ref, self, source, owner, props) {
 
 `文件位置：packages/react/src/ReactElement.js`
 
-```react
+```javascript
 /**
  * 查看参数对象中是否有合法的 ref 属性
  * 返回布尔值
@@ -404,7 +404,7 @@ function hasValidRef(config) {
 
 `文件位置：packages/react/src/ReactElement.js`
 
-```react
+```javascript
 /**
  * 查看参数对象中是否有合法的 key 属性
  * 返回布尔值
@@ -418,7 +418,7 @@ function hasValidKey(config) {
 
 `文件位置：packages/react/src/ReactElement.js`
 
-```react
+```javascript
 /**
  * 验证 object 参数是否是 ReactElement. 返回布尔值
  * 验证成功的条件:
@@ -439,7 +439,7 @@ export function isValidElement(object) {
 
 `文件位置：packages/react/src/ReactElement.js`
 
-```react
+```javascript
 /**
  *  指定当通过 props 对象获取 key 属性时报错
  *  props        组件中的 props 对象
@@ -479,7 +479,7 @@ function defineKeyPropWarningGetter(props, displayName) {
 
 `文件位置：packages/react/src/ReactElement.js`
 
-```react
+```javascript
 /**
  *  指定当通过 props 对象获取 ref 属性时报错
  *  props        组件中的 props 对象
@@ -550,7 +550,7 @@ Scheduler 存储在 `packages/scheduler` 文件夹中。
 
 ### 4.1 Fiber
 
-```react
+```javascript
 type Fiber = {
   /************************  DOM 实例相关  *****************************/
   
@@ -620,7 +620,7 @@ type Fiber = {
 
 `文件位置：packages/shared/ReactWorkTags.js`
 
-```react
+```javascript
 type WorkTag =
   | 0
   | 1
@@ -675,7 +675,7 @@ export const Block = 22;
 
 `文件位置: packages/react-reconciler/src/ReactTypeOfMode.js`
 
-```react
+```javascript
 export type TypeOfMode = number;
 
 // 0 同步渲染模式
@@ -694,7 +694,7 @@ export const ProfileMode = 0b1000;
 
 `文件位置：packages/shared/ReactSideEffectTags.js`
 
-```react
+```javascript
 export type SideEffectTag = number;
 
 // Don't change these two values. They're used by React Dev Tools.
@@ -727,7 +727,7 @@ export const ShouldCapture = /*         */ 0b1000000000000; // 4096
 
 ### 4.4 Update
 
-```react
+```javascript
 let update: Update<*> = {
   expirationTime,
   suspenseConfig,
@@ -742,7 +742,7 @@ let update: Update<*> = {
 
 ### 4.5 UpdateQueue
 
-```react
+```javascript
 const queue: <State> = {
   // 上一次更新之后的 state, 作为下一次更新的基础
   baseState: fiber.memoizedState,
@@ -759,7 +759,7 @@ fiber.updateQueue = queue;
 
 `文件位置：packages/shared/ReactRootTags.js`
 
-```react
+```javascript
 export type RootTag = 0 | 1 | 2;
 
 // ReactDOM.render
@@ -820,7 +820,7 @@ commit 阶段负责根据 Fiber 节点标记 ( effectTag ) 进行相应的 DOM �
 
 `文件位置：packages/react-dom/src/client/ReactDOMLegacy.js`
 
-```react
+```javascript
 /**
  * 渲染入口
  * element 要进行渲染的 ReactElement, createElement 方法的返回值
@@ -855,7 +855,7 @@ export function render(
 
 `文件位置：packages/react-dom/src/client/ReactDOMRoot.js`
 
-```react
+```javascript
 /**
  * 判断 node 是否是符合要求的 DOM 节点
  * 1. node 可以是元素节点
@@ -882,7 +882,7 @@ export function isValidContainer(node: mixed): boolean {
 
 `文件位置: packages/react-dom/src/client/ReactDOMLegacy.js`
 
-```react
+```javascript
 /**
  * 将子树渲染到容器中 (初始化 Fiber 数据结构: 创建 fiberRoot 及 rootFiber)
  * parentComponent: 父组件, 初始渲染传入了 null
@@ -975,7 +975,7 @@ function legacyRenderSubtreeIntoContainer(
 
 `文件位置: packages/react-dom/src/client/ReactDOMLegacy.js`
 
-```react
+```javascript
 /**
  * 判断是否为服务器端渲染 如果不是服务器端渲染
  * 清空 container 容器中的节点
@@ -1026,7 +1026,7 @@ function legacyCreateRootFromDOMContainer(
 
 `文件位置: packages/react-dom/src/client/ReactDOMRoot.js`
 
-```react
+```javascript
 /**
  * 通过实例化 ReactDOMBlockingRoot 类创建 LegacyRoot
  */
@@ -1045,7 +1045,7 @@ export function createLegacyRoot(
 
 `文件位置: packages/react-dom/src/client/ReactDOMRoot.js`
 
-```react
+```javascript
 /**
  * 类, 通过它可以创建 LegacyRoot 的 Fiber 数据结构
  */
@@ -1065,7 +1065,7 @@ function ReactDOMBlockingRoot(
 
 `文件位置: packages/react-dom/src/client/ReactDOMRoot.js`
 
-```react
+```javascript
 
 function createRootImpl(
   container: Container,
@@ -1085,7 +1085,7 @@ function createRootImpl(
 
 `文件位置: packages/react-reconciler/src/ReactFiberReconciler.js`
 
-```react
+```javascript
 // 创建 container
 export function createContainer(
   containerInfo: Container,
@@ -1106,7 +1106,7 @@ export function createContainer(
 
 `文件位置: packages/react-reconciler/src/ReactFiberRoot.js`
 
-```react
+```javascript
 // 创建根节点对应的 fiber 对象
 export function createFiberRoot(
   containerInfo: any,
@@ -1135,7 +1135,7 @@ export function createFiberRoot(
 
 `文件位置: packages/react-reconciler/src/ReactFiberRoot.js`
 
-```react
+```javascript
 function FiberRootNode(containerInfo, tag, hydrate) {
   this.tag = tag;
   this.current = null;
@@ -1171,7 +1171,7 @@ function FiberRootNode(containerInfo, tag, hydrate) {
 
 `文件位置: packages/react-reconciler/src/ReactFiberRoot.js`
 
-```react
+```javascript
 export function initializeUpdateQueue<State>(fiber: Fiber): void {
   const queue: UpdateQueue<State> = {
     baseState: fiber.memoizedState,
@@ -1193,7 +1193,7 @@ export function initializeUpdateQueue<State>(fiber: Fiber): void {
 
 `文件位置: packages/react-reconciler/src/ReactFiberReconciler.js`
 
-```react
+```javascript
 /**
  * 获取 container 的第一个子元素的实例对象
  */
@@ -1225,7 +1225,7 @@ export function getPublicRootInstance(
 
 `文件位置: packages/react-dom/src/client/ReactDOMHostConfig.js`
 
-```react
+```javascript
 export function getPublicInstance(instance: Instance): * {
   return instance;
 }
@@ -1235,7 +1235,7 @@ export function getPublicInstance(instance: Instance): * {
 
 `文件位置: packages/react-reconciler/src/ReactFiberReconciler.js`
 
-```react
+```javascript
 /**
  * 计算任务的过期时间
  * 再根据任务过期时间创建 Update 任务
@@ -1304,7 +1304,7 @@ export function updateContainer(
 
 `文件位置: packages/react-reconciler/src/ReactUpdateQueue.js`
 
-```react
+```javascript
 // 将任务(Update)存放于任务队列(updateQueue)中
 // 创建单向链表结构存放 update, next 用来串联 update
 export function enqueueUpdate<State>(fiber: Fiber, update: Update<State>) {
@@ -1336,7 +1336,7 @@ export function enqueueUpdate<State>(fiber: Fiber, update: Update<State>) {
 
 `文件位置: packages/react-reconciler/src/ReactFiberWorkLoop.js`
 
-```react
+```javascript
 /**
  * 判断任务是否为同步 调用同步任务入口
  */
@@ -1377,7 +1377,7 @@ export function scheduleUpdateOnFiber(
 
 `文件位置: packages/react-reconciler/src/ReactFiberWorkLoop.js`
 
-```react
+```javascript
 // 进入 render 阶段, 构建 workInProgress Fiber 树
 function performSyncWorkOnRoot(root) {
   // 参数 root 为 fiberRoot 对象
@@ -1438,7 +1438,7 @@ function performSyncWorkOnRoot(root) {
 
 `文件位置: packages/react-reconciler/src/ReactFiberWorkLoop.js`
 
-```react
+```javascript
 /**
  * 根据 currentFiber 树中的 rootFiber
  * 构建 workInProgressFiber 树中的 rootFiber
@@ -1463,7 +1463,7 @@ function prepareFreshStack(root, expirationTime) {
 
 `文件位置: packages/react-reconciler/src/ReactFiber.js`
 
-```react
+```javascript
 // 构建 workInProgress Fiber 树中的 rootFiber
 // 构建完成后会替换 current fiber
 // 初始渲染 pendingProps 为 null
@@ -1509,7 +1509,7 @@ export function createWorkInProgress(current: Fiber, pendingProps: any): Fiber {
 
 `文件位置: packages/react-reconciler/src/ReactFiberWorkLoop.js`
 
-```react
+```javascript
 // 以同步的方式构建 workInProgress Fiber 对象
 function workLoopSync() {
   // workInProgress 是一个 fiber 对象
@@ -1524,7 +1524,7 @@ function workLoopSync() {
 
 `文件位置: packages/react-reconciler/src/ReactFiberWorkLoop.js`
 
-```react
+```javascript
 function performUnitOfWork(unitOfWork: Fiber): Fiber | null {
   // unitOfWork => workInProgress Fiber 树中的 rootFiber
   // current => currentFiber 树中的 rootFiber
@@ -1556,7 +1556,7 @@ function performUnitOfWork(unitOfWork: Fiber): Fiber | null {
 
 `文件位置: packages/react-reconciler/src/ReactFiberBeginWork.js`
 
-```react
+```javascript
 // 从父到子, 构建 Fiber 节点对象
 function beginWork(
   current: Fiber | null,
@@ -1637,7 +1637,7 @@ function beginWork(
 
 `文件位置: packages/react-reconciler/src/ReactFiberBeginWork.js`
 
-```react
+```javascript
 // HostRoot => <div id="root"></div> 对应的 Fiber 对象
 // 找出 HostRoot 的子 ReactElement 并为其构建 Fiber 对象
 function updateHostRoot(current, workInProgress, renderExpirationTime) {
@@ -1683,7 +1683,7 @@ function updateHostRoot(current, workInProgress, renderExpirationTime) {
 
 `文件位置: packages/react-reconciler/src/ReactFiberBeginWork.js`
 
-```react
+```javascript
 export function reconcileChildren(
   // 旧 Fiber
   current: Fiber | null,
@@ -1717,7 +1717,7 @@ export function reconcileChildren(
 
 `文件位置: packages/react-reconciler/src/ReactChildFiber.js`
 
-```react
+```javascript
 /**
  * shouldTrackSideEffects 标识, 是否为 Fiber 对象添加 effectTag
  * true 添加 false 不添加
@@ -1956,7 +1956,7 @@ function ChildReconciler(shouldTrackSideEffects) {
 
 `文件位置: packages/react-reconciler/src/ReactFiberWorkLoop.js`
 
-```react
+```javascript
 /**
  *
  * 从下至上移动到该节点的兄弟节点, 如果一直往上没有兄弟节点就返回父节点, 最终会到达 root 节点
@@ -2077,7 +2077,7 @@ function completeUnitOfWork(unitOfWork: Fiber): Fiber | null {
 
 `文件位置: packages/react-reconciler/src/ReactFiberCompleteWork.js`
 
-```react
+```javascript
 function completeWork(
   current: Fiber | null,
   workInProgress: Fiber,
@@ -2140,7 +2140,7 @@ function completeWork(
 
 `文件位置: packages/react-reconciler/src/ReactFiberCompleteWork.js`
 
-```react
+```javascript
 appendAllChildren = function (
     parent: Instance,
     workInProgress: Fiber,
@@ -2193,7 +2193,7 @@ appendAllChildren = function (
 
 `文件位置: packages/react-reconciler/src/ReactFiberWorkLoop.js`
 
-```react
+```javascript
 function finishSyncRender(root) {
   // 销毁 workInProgress Fiber 树
   // 因为待提交 Fiber 对象已经被存储在了 root.finishedWork 中
@@ -2207,7 +2207,7 @@ function finishSyncRender(root) {
 
 `文件位置: packages/react-reconciler/src/ReactFiberWorkLoop.js`
 
-```react
+```javascript
 function commitRoot(root) {
   // 获取任务优先级 97 => 普通优先级
   const renderPriorityLevel = getCurrentPriorityLevel();
@@ -2231,7 +2231,7 @@ commit 阶段可以分为三个子阶段：
 
 `文件位置: packages/react-reconciler/src/ReactFiberWorkLoop.js`
 
-```react
+```javascript
 function commitRootImpl(root, renderPriorityLevel) {
   // 获取待提交 Fiber 对象 rootFiber
   const finishedWork = root.finishedWork;
@@ -2285,7 +2285,7 @@ function commitRootImpl(root, renderPriorityLevel) {
 
 `文件位置: packages/react-reconciler/src/ReactFiberWorkLoop.js`
 
-```react
+```javascript
 // commit 阶段的第一个子阶段
 // 调用类组件的 getSnapshotBeforeUpdate 生命周期函数
 function commitBeforeMutationEffects() {
@@ -2320,7 +2320,7 @@ function commitBeforeMutationEffects() {
 
 `文件位置: packages/react-reconciler/src/ReactFiberCommitWork.js`
 
-```react
+```javascript
 function commitBeforeMutationLifeCycles(
   current: Fiber | null,
   finishedWork: Fiber,
@@ -2372,7 +2372,7 @@ function commitBeforeMutationLifeCycles(
 
 `文件位置: packages/react-reconciler/src/ReactFiberWorkLoop.js`
 
-```react
+```javascript
 // commit 阶段的第二个子阶段
 // 根据 effectTag 执行 DOM 操作
 function commitMutationEffects(root: FiberRoot, renderPriorityLevel) {
@@ -2444,7 +2444,7 @@ function commitMutationEffects(root: FiberRoot, renderPriorityLevel) {
 
 `文件位置: packages/react-reconciler/src/ReactFiberCommitWork.js`
 
-```react
+```javascript
 // 挂载 DOM 元素
 function commitPlacement(finishedWork: Fiber): void {
   // finishedWork 初始化渲染时为根组件 Fiber 对象
@@ -2504,7 +2504,7 @@ function commitPlacement(finishedWork: Fiber): void {
 
 `文件位置: packages/react-reconciler/src/ReactFiberCommitWork.js`
 
-```react
+```javascript
 // 获取 HostRootFiber 对象
 function getHostParentFiber(fiber: Fiber): Fiber {
   // 获取当前 Fiber 父级
@@ -2526,7 +2526,7 @@ function getHostParentFiber(fiber: Fiber): Fiber {
 
 `文件位置: packages/react-reconciler/src/ReactFiberCommitWork.js`
 
-```react
+```javascript
 // 向容器中追加 | 插入到某一个节点的前面
 function insertOrAppendPlacementNodeIntoContainer(
   node: Fiber,
@@ -2574,7 +2574,7 @@ function insertOrAppendPlacementNodeIntoContainer(
 
 `文件位置: packages/react-dom/src/client/ReactDOMHostConfig.js`
 
-```react
+```javascript
 export function insertInContainerBefore(
   container: Container,
   child: Instance | TextInstance,
@@ -2596,7 +2596,7 @@ export function insertInContainerBefore(
 `文件位置: packages/react-dom/src/client/ReactDOMHostConfig.js`
 
 
-```react
+```javascript
 export function appendChildToContainer(
   container: Container,
   child: Instance | TextInstance,
@@ -2621,7 +2621,7 @@ export function appendChildToContainer(
 
 `文件位置: packages/react-reconciler/src/ReactFiberWorkLoop.js`
 
-```react
+```javascript
 // commit 阶段的第三个子阶段
 function commitLayoutEffects(
   root: FiberRoot,
@@ -2647,7 +2647,7 @@ function commitLayoutEffects(
 
 `文件位置: packages/react-reconciler/src/ReactFiberCommitWork.js`
 
-```react
+```javascript
 function commitLifeCycles(
   finishedRoot: FiberRoot,
   current: Fiber | null,
@@ -2701,7 +2701,7 @@ function commitLifeCycles(
 
 `文件位置: packages/react-reconciler/src/ReactUpdateQueue.js`
 
-```react
+```javascript
 /**
  * 执行渲染完成之后的回调函数
  */
@@ -2739,7 +2739,7 @@ export function commitUpdateQueue<State>(
 
 `文件位置: packages/react-reconciler/src/ReactFiberCommitWork.js`
 
-```react
+```javascript
 /**
  * useEffect 回调函数调用
  */
